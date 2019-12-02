@@ -74,7 +74,7 @@ void loop()
   // Wait to full timeStep period
   delay((timeStep*1000) - (millis() - timer));
 
-  if ( yaw == 90 ) {
+  if ( yaw <= 3 && yaw >= -3 ) {   // you can increse the range to suit your sensor's accuracy
         digitalWrite(ina, HIGH);
         digitalWrite(inb,HIGH);
         analogWrite(ena, 0);
@@ -84,7 +84,7 @@ void loop()
         digitalWrite(led, HIGH);
   }
   else {
-    if ( yaw < 90 ) {
+    if ( yaw < -3 ) {
         digitalWrite(ina, HIGH);
         digitalWrite(inb,LOW);
         analogWrite(ena, 80);
